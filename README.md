@@ -11,13 +11,14 @@
   pip3 install -r requirements.txt
   ```
 Важно! Если Вы используете GPU, то необходимо установить CUDA и заменить в `requirements.txt` версию torch на версию с поддержкой GPU. 
+В противном случае будет задействован процессор.
 
 
 -----
 ### 2. Установка переменных в `config.py` (можно пропустить)
 
 -----
-### 3. Запуск скрипта треировки:
+### 3. Запуск скрипта тренировки:
 ```sh
 python3 train.py --model=resnet34 --pretrained=True --epoch_num=40 --checkpoints=ckpts
   ```
