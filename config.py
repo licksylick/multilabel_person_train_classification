@@ -1,0 +1,13 @@
+import os
+
+DATA_PATH = os.path.join('data/dataset')
+BATCH_SIZE = 4
+IMAGE_SIZE = 224
+TRAIN_SIZE = 0.6
+VAL_SIZE = 0.2
+TEST_SIZE = 0.2
+EPOCHS_NUM = 30
+NUM_CLASSES = 2
+THRESHOLD = 0.5
+SEED = 66
+NUM_WORKERS = 4

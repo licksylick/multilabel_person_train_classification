@@ -1,0 +1,18 @@
+# Ignore Logs
+logs
+*.log
+
+# Ignore directories
+/venv
+/data
+/small_dataset
+/ckpts
+/logs
+
+# The file containing environment variables
+.env
+
+# Ignore IDE specific files
+.idea/
+*.sw*
+*.DS_Store*
