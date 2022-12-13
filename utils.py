@@ -8,7 +8,7 @@ import warnings
 from models.resnet import Resnet
 from models.efficientnet import EfficientNetModel
 from augmentations import test_transforms
-
+from config import THRESHOLD
 
 warnings.filterwarnings("ignore")
 
@@ -59,20 +59,19 @@ def create_dataframe(data_path):
     return df
 
 
-def inference(model, image, threshold=0.7):
-    model.eval()
-    image = test_transforms(image)
-    image = torch.unsqueeze(image, 0)
+def inference(model, image, threshold=THRESHOLD):
+    image = test_transforms(image).unsqueeze_(0)
 
     prediction = model(image)
 
     pred_arr = prediction.detach().numpy()[0]
     indices = [i for i, v in enumerate(pred_arr >= threshold) if v]
 
-    classes = ['person(s)', 'train(s)', 'no person(s), no train(s)']
-
+    classes = ['person(s) ', 'train(s) ', 'no person(s), no train(s) ']
+    res = ''
     if len(indices) > 0:
         for i in indices:
-            print(f'Image contains {classes[i]}')
+            res += classes[i]
     else:
-        print('Image does not contains person(s), train(s)')
+        res = 'no person(s), no train(s)'
+    return pred_arr, res

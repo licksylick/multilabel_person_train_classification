@@ -63,7 +63,10 @@ def main():
     )
 
     early_stoping_callback = EarlyStopping('val_loss', patience=7)
-    trainer = pl.Trainer(accelerator='gpu', gpus=1, devices=-1, max_epochs=args.epoch_num)
+    if device == 'cuda':
+        trainer = pl.Trainer(accelerator='gpu', gpus=1, devices=-1, max_epochs=args.epoch_num)
+    else:
+        trainer = pl.Trainer(accelerator='cpu', max_epochs=args.epoch_num)
     trainer.logger = logger
     trainer.callbacks = [checkpoint_callback, early_stoping_callback]
     trainer.fit(model=model, datamodule=dm)
