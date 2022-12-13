@@ -31,7 +31,7 @@ python3 train.py --model=resnet34 --pretrained=True --epoch_num=40 --checkpoints
 -----
 -----
 ## ✅ Инференс
-###  Необходимо запустить `inference.py`, указав в аргументах путь к модели и изображению:
+###  Необходимо запустить `inference.py`, указав в аргументах необходимую архитектуру, путь к модели и изображению:
   ```sh
   python3 inference.py --model_arch=resnet34 --ckpt=model.ckpt --image_path=image.jpg
   ```
