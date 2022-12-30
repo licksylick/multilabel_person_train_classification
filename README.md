@@ -4,25 +4,25 @@
 
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1aZujmHUjzw5CPbIVwpYB2wt1kMKXy7Xx?usp=sharing)
-## 🚀 Тренировка модели
+## 🚀 Train
 
-### 1. Установка необходимых библиотек:
+### 1. Install all necessary libs:
   ```sh
   pip3 install -r requirements.txt
   ```
-Важно! Если Вы используете GPU, то необходимо установить CUDA и заменить в `requirements.txt` версию torch на версию с поддержкой GPU. 
-В противном случае будет задействован процессор.
+Note: if you are using a GPU, then you need to install CUDA and replace the torch version in `requirements.txt` with the GPU-enabled version.
+Otherwise, the processor will be used.
 
 
 -----
-### 2. Установка переменных в `config.py` (можно пропустить)
+### 2. Edit `config.py` (can skip)
 
 -----
-### 3. Запуск скрипта тренировки:
+### 3. Run the training script with the arguments:
 ```sh
 python3 train.py --model=resnet34 --pretrained=True --epoch_num=40 --checkpoints=ckpts
   ```
- В качестве аргумента `model` могут быть выбраны:
+ you can choose as the `model` argument:
  * ResNet18 ('resnet18')
  * ResNet34 ('resnet34')
  * ResNet50 ('resnet50')
@@ -30,8 +30,8 @@ python3 train.py --model=resnet34 --pretrained=True --epoch_num=40 --checkpoints
 
 -----
 -----
-## ✅ Инференс
-###  Необходимо запустить `inference.py`, указав в аргументах необходимую архитектуру, путь к модели и изображению:
+## ✅ Inference
+###  Run `inference.py`, specifying the required architecture, the path to the model and the image in the arguments:
   ```sh
   python3 inference.py --model_arch=resnet34 --ckpt=model.ckpt --image_path=image.jpg
   ```
